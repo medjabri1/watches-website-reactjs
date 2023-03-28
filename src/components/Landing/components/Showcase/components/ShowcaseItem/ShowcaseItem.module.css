@@ -1,0 +1,130 @@
+.ShowcaseItem__container {
+    height: 100%;
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.ShowcaseItem__img {
+    height: 60%;
+    position: relative;
+    width: 50%;
+    animation: scaleUp 1000ms ease-in-out;
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(.8) rotate(-50deg);
+        opacity: 1;
+    }
+    
+    90% {
+        transform: scale(1.2) rotate(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.ShowcaseItem__img img {
+    height: 100%;
+    object-fit: cover;
+    z-index: 10000;
+    max-width: 500px;
+    /* animation: move 2000ms ease-in-out alternate infinite; */
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(-20px) rotate(-2deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+}
+
+.ShowcaseItem__info__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.ShowcaseItem__info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    background-color: #f9f9f910;
+    padding: 30px;
+    min-width: 400px;
+    border-radius: 5px;
+    border: 2px solid #f9f9f999;
+    transition: all 200ms ease-in-out;
+    animation: moveIn 1000ms ease-in-out;
+}
+
+@keyframes moveIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.ShowcaseItem__info:hover {
+    background-color: #f9f9f920;
+    border: 2px solid #f9f9f999;
+}
+
+.ShowcaseItem__info .ShowcaseItem__model {
+    font-size: 1.7rem;
+    color: #f9f9f9;
+}
+
+.ShowcaseItem__info .ShowcaseItem__brand {
+    font-size: 1.2rem;
+    color: #f9f9f9;
+    text-transform: uppercase;
+    opacity: .5;
+}
+
+.ShowcaseItem__info .ShowcaseItem__price {
+    font-size: 1.2rem;
+    color: #f9f9f9;
+    text-transform: uppercase;
+    opacity: .5;
+}
+
+.ShowcaseItem__info .ShowcaseItem__details {
+    font-size: 1rem;
+    color: #f9f9f9;
+    text-transform: uppercase;
+    align-self: flex-end;
+    margin-top: 20px;
+    text-decoration: none;
+    background-color: #48239755;
+    padding: 10px 30px;
+    border-radius: 2px;
+    border: 2px solid #f9f9f999;
+}
+
+.ShowcaseItem__info .ShowcaseItem__details:hover {
+    background-color: #48239777;
+}

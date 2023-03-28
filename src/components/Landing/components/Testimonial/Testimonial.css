@@ -1,0 +1,150 @@
+.testimonial__container {
+    width: 100%;
+    background-color: #121020;
+    height: fit-content;
+}
+
+.section__title {
+    font-size: 1.3rem;
+    color: #ccc;
+    position: relative;
+    margin: auto;
+    margin-bottom: 30px;
+    width: fit-content;
+}
+
+.section__title::before, .section__title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -100px;
+    height: 2px;
+    width: 90px;
+    background-color: #ccc;
+}
+
+.section__title::after {
+    left: calc(100% + 10px);
+}
+
+.glide__slides {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    list-style: none !important;
+}
+
+.glide__slide {
+    width: 100%;
+}
+
+.testimonial {
+    position: relative;
+    /* background: url("./images/testimonial.jpg") center/cover no-repeat; */
+    height: fit-content;
+    padding: 2rem 0;
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.testimonial__container {
+    padding: 1rem;
+}
+
+.testimonial__box {
+    width: 100%;
+    color: #ccc;
+    box-shadow: 0px 0px 2px #cccccc22, 0px 0px 5px #cccccc22;
+    height: 100%;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: all 200ms ease-in-out;
+    user-select: none;
+}
+
+.testimonial__box:hover {
+    transform: scale(1.02);
+    background-color: #cccccc09;
+}
+
+.testimonial__box p {
+    margin: 0 auto;
+    font-style: italic;
+    font-size: 1rem;
+    margin-bottom: 3rem;
+}
+
+.client__info h3 {
+    font-weight: 400;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.client__info span {
+    font-size: 1rem;
+}
+
+.testimonial .glide__bullets {
+    bottom: -20%;
+}
+
+/*
+  ======================
+  Testimonial Media Query
+  ======================
+  */
+@media only screen and (max-width: 1200px) {
+    .testimonial__box {
+        height: 100%;
+    }
+
+    .testimonial__box p {
+        width: 90%;
+        margin: 0 auto;
+        line-height: 2.2rem;
+        margin-bottom: 3rem;
+    }
+
+    .client__image {
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media only screen and (max-width: 568px) {
+    .testimonial {
+        height: 100%;
+        padding: 4rem 0 5rem;
+        z-index: 1;
+        text-align: center;
+    }
+
+    .testimonial__box {
+        height: 100%;
+    }
+
+    .testimonial__box p {
+        width: 100%;
+        font-size: 1.3rem;
+        line-height: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .client__image {
+        margin-bottom: 1.5rem;
+    }
+
+    .testimonial__box span {
+        margin-bottom: 1rem;
+    }
+
+    .testimonial .glide__bullets {
+        bottom: -8%;
+    }
+}

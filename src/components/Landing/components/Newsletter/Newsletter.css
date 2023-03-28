@@ -1,0 +1,136 @@
+.newsletter__container {
+    width: 100%;
+    background-color: #121020;
+    padding: 30px 20px;
+}
+
+.newsletter {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    border-top: 1px solid var(--primaryColor);
+}
+
+.section__title {
+    font-size: 1.3rem;
+    color: #ccc;
+    position: relative;
+    margin: auto;
+    margin-bottom: 30px;
+    width: fit-content;
+}
+
+.section__title::before, .section__title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -100px;
+    height: 2px;
+    width: 90px;
+    background-color: #ccc;
+}
+
+.section__title::after {
+    left: calc(100% + 10px);
+}
+
+.newsletter__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #000;
+}
+
+.newsletter__data h3 {
+    font-size: 1.2rem;
+    font-weight: inherit;
+    margin-bottom: 1rem;
+}
+
+.newsletter__data p {
+    font-size: .9rem;
+    color: #ccc;
+}
+
+.newsletter__email {
+    font-size: 1rem;
+    display: inline-block;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--primaryColor);
+    border: none;
+    text-indent: 1rem;
+    background-color:  #e8e8e8;
+    height: 100%;
+}
+
+.newsletter__email:focus {
+    outline: none;
+}
+
+.newsletter__link {
+    background-color: #2f1f5f;
+    color: #e8e8e8;
+    text-transform: uppercase;
+    padding: 20px;
+    text-decoration: none;
+}
+
+/*
+  ======================
+  Newsletter Media Query
+  ======================
+  */
+@media only screen and (max-width: 998px) {
+    .newsletter {
+        padding: 6rem 4rem;
+    }
+
+    .newsletter__content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .newsletter__email {
+        width: 45rem;
+    }
+
+    .newsletter__data {
+        margin-bottom: 2rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .newsletter__content {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .newsletter__email {
+        width: 45rem;
+        display: block;
+        margin-bottom: 1.6rem;
+    }
+}
+
+@media only screen and (max-width: 568px) {
+    .newsletter__email {
+        width: 23rem;
+        font-size: 1.2rem;
+    }
+
+    .newsletter__data h3 {
+        font-size: 1.6rem;
+    }
+
+    .newsletter__data p {
+        font-size: 1rem;
+    }
+
+    .newsletter__link:link,
+    .newsletter__link:visited {
+        padding: 1.2rem 2rem;
+        margin-left: 0;
+    }
+}

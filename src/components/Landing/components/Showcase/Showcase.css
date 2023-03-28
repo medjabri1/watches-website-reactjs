@@ -1,0 +1,66 @@
+:root {
+	--swiper-theme-color: #000;
+}
+
+.swiper {
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+
+	/* Center slide text vertically */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	opacity: 0;
+	transition: all 1000ms ease-in-out !important;
+}
+
+.swiper-slide-active {
+	opacity: 1;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+	background-image: url('https://cdn-icons-png.flaticon.com/512/5698/5698146.png');
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	margin: 0px 20px;
+	width: 50px;
+	background-position: center;
+	filter: invert(1);
+	animation: slideIn 1000ms ease-in-out;
+	opacity: .5;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+	opacity: .8;
+}
+
+.swiper-button-prev {
+	transform: rotate(180deg);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+	display: none;
+}
+
+@keyframes slideIn {
+	0% {
+		opacity: 0;
+		margin: 0px 200px;
+		filter: invert(0) blur(5px);
+	}
+	
+	100% {
+		opacity: .5;
+		margin: 0px 20px;
+		filter: invert(1) blur(0px);
+	}
+}
