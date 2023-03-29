@@ -1,0 +1,197 @@
+.browse__container {
+
+    background: repeating-linear-gradient(45deg, #000000 0, #000000 10%, transparent 0, transparent 50%), repeating-linear-gradient(135deg, #000000 0, #000000 10%, transparent 0, transparent 50%);
+    background-size: 5em 5em;
+    background-color: #090810;
+    opacity: 1;
+
+    min-height: 100%;
+    width: 100%;
+    padding-top: 100px;
+}
+
+.browse__wrapper {
+    /* height: 100%; */
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.search__container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.search__container label {
+    width: 100%;
+    font-size: 1rem;
+    color: #eee;
+    margin-bottom: 10px;
+}
+
+.search__container input {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    box-shadow: 0px 0px 2px #FFFFFF33, 0px 0px 6px #FFFFFF33;
+    border-radius: 5px;
+}
+
+.products__list {
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 20px 0px;
+    margin: 20px 0px;
+}
+
+.product__item {
+    width: 100%;
+    background-color: #090810;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 20px; */
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0px 0px 8px #FFFF3311, 0px 0px 20px #FFFF3311;
+    border: 2px solid #FFFF3320;
+    position: relative;
+    cursor: pointer;
+}
+
+.product__item__background {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.product__item__background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #03041522;
+    z-index: 100;
+}
+
+.product__item:hover .product__item__background .product__item__image,
+.product__item.active .product__item__background .product__item__image {
+    filter: blur(5px);
+    transform: scale(1.5) rotate(20deg);
+}
+
+.product__item__image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    filter: blur(0px);
+    transition: all 200ms ease-in-out;
+}
+
+.product__item__content__container {
+    position: absolute;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    color: #eee;
+    background-color: #03041599;
+    /* opacity: 0; */
+    transform: scale(1) translateX(-100%);
+    transition: all 200ms ease-in-out;
+}
+
+.product__item:hover .product__item__content__container, .product__item.active .product__item__content__container {
+    transform: scale(1) translateX(0px);
+}
+
+.product__item__content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    padding: 20px;
+    height: 100%;
+}
+
+.product__item__content__info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+}
+
+.product__item__content__action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+}
+
+.product__item__content .product__item__model {
+    font-size: 2rem;
+    color: #e6543d;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.product__item__content .product__item__brand {
+    font-size: 1.3rem;
+}
+
+.product__item__content .product__item__price {
+    font-size: 1.7rem;
+    color: #eee;
+    padding: 10px 60px;
+    background-color: #e6543d;
+    align-self: center;
+    margin-top: 40px;
+    text-align: center;
+    transform: skew(-10deg);
+}
+
+.product__item__content .product__item__add__cart {
+    font-size: 1rem;
+    color: #eee;
+    padding: 10px 20px;
+    border: 2px solid #e6543d;
+    align-self: end;
+    margin-top: 20px;
+    transition: all 200ms ease-in-out;
+}
+
+.product__item__content .product__item__add__cart:hover {
+    background-color: #e6543d55;
+}
+
+.product__item__content .product__item__details {
+    font-size: 1rem;
+    color: #eee;
+    padding: 10px 20px;
+    border: 2px solid #e6543d;
+    align-self: end;
+    margin-top: 20px;
+    transition: all 200ms ease-in-out;
+}
+
+.product__item__content .product__item__details:hover {
+    background-color: #e6543d55;
+}

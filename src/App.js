@@ -1,5 +1,5 @@
 import './App.css';
-import { createBrowserRouter, RouterProvider, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Landing from './components/Landing/Landing';
@@ -7,33 +7,22 @@ import Product from './components/Product/Product';
 import Cart from './components/Cart/Cart';
 import NotFound from './components/NotFound/NotFound';
 import Footer from './components/Footer/Footer';
+import Browse from './components/Browse/Browse';
 
 function App() {
 
-	const router = createBrowserRouter([
-		{
-			path: '/',
-            element: <Landing />
-		},
-		{
-			path: 'product/:id',
-			element: <Product />
-		},
-		{
-			path: 'cart',
-			element: <Cart />
-		},
-		{
-			path: '*',
-            element: <NotFound />
-		}
-	]);
-
 	return (
 		<div className="app">
-			<Header />
-			<RouterProvider router={router}/>
-			{/* <Footer /> */}
+			<BrowserRouter>
+				<Header />
+				<Routes>
+					<Route path="/" element={<Landing />} />
+					<Route path="browse" element={<Browse />} />
+					<Route path="product/:id" element={<Product />} />
+					<Route path="cart" element={<Cart />} />
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+			</BrowserRouter>
 		</div>
 	);
 }

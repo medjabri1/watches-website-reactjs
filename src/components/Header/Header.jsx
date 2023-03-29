@@ -12,11 +12,11 @@ function Header() {
 	return (
 		<div className={styles.header__container}>
 			<div className={styles.header__nav}>
-				<h1 className={styles.header__nav__logo}>Watch</h1>
+				<h1 className={styles.header__nav__logo}><Link to="/">Watch</Link></h1>
 				<ul className={styles.header__nav__list}>
-					<li className={styles.header__nav__list__item}>Home</li>
-					<li className={styles.header__nav__list__item}>Browse</li>
-					<li className={styles.header__nav__list__item}>Contact</li>
+					<li className={styles.header__nav__list__item}><Link to="/">Home</Link></li>
+					<li className={styles.header__nav__list__item}><Link to="/browse">Browse</Link></li>
+					<li className={styles.header__nav__list__item}><Link to="/cart">Cart</Link></li>
 				</ul>
 				<ul className={styles.header__nav__actions}>
 					<li className={styles.header__nav__actions__item}>

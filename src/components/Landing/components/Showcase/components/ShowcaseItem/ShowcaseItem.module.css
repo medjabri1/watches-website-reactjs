@@ -12,7 +12,7 @@
     height: 60%;
     position: relative;
     width: 50%;
-    animation: scaleUp 1000ms ease-in-out;
+    /* animation: scaleUp 1000ms ease-in-out; */
 }
 
 @keyframes scaleUp {
