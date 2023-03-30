@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
+import { GLOBAL_ACTIONS } from '../../../../Context/WatchesWebsiteContext';
+import { useWatchesWebsite } from '../../../../Hook/WatchesWebsiteHooks';
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Autoplay } from "swiper";
@@ -17,7 +20,7 @@ function Showcase() {
 
     SwiperCore.use([Autoplay]);
 
-    const [watches, setWatches] = useState([]);
+    const [state, dispatch] = useWatchesWebsite();
 
     useEffect(() => {
         fetchData();
@@ -29,7 +32,7 @@ function Showcase() {
 
         axios.get(api__url)
             .then(response => {
-                setWatches(response.data);
+                dispatch({ type: GLOBAL_ACTIONS.SET_WATCHES, payload: response.data });
             })
             .catch(err => console.error(err));
     }
@@ -51,7 +54,7 @@ function Showcase() {
             >
 
                 {
-                    watches.map((item, index) => {
+                    state.watches.map((item, index) => {
                         return (
                             <SwiperSlide key={index}>
                                 <ShowcaseItem item={item} />

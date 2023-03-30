@@ -9,21 +9,25 @@ import NotFound from './components/NotFound/NotFound';
 import Footer from './components/Footer/Footer';
 import Browse from './components/Browse/Browse';
 
+import { GlobalProvider } from './Context/WatchesWebsiteContext';
+
 function App() {
 
 	return (
-		<div className="app">
-			<BrowserRouter>
-				<Header />
-				<Routes>
-					<Route path="/" element={<Landing />} />
-					<Route path="browse" element={<Browse />} />
-					<Route path="product/:id" element={<Product />} />
-					<Route path="cart" element={<Cart />} />
-					<Route path="*" element={<NotFound />} />
-				</Routes>
-			</BrowserRouter>
-		</div>
+		<GlobalProvider>
+			<div className="app">
+				<BrowserRouter>
+					<Header />
+					<Routes>
+						<Route path="/" element={<Landing />} />
+						<Route path="browse" element={<Browse />} />
+						<Route path="product/:id" element={<Product />} />
+						<Route path="cart" element={<Cart />} />
+						<Route path="*" element={<NotFound />} />
+					</Routes>
+				</BrowserRouter>
+			</div>
+		</GlobalProvider>
 	);
 }
 

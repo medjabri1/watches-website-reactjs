@@ -1,13 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
+import axios from 'axios';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faBasketShopping, faSearch } from '@fortawesome/free-solid-svg-icons'
+
+import { GLOBAL_ACTIONS } from '../../Context/WatchesWebsiteContext';
+import { useWatchesWebsite } from '../../Hook/WatchesWebsiteHooks';
 
 import './Header.css';
 
 function Header() {
 
-	const cart_items_nbr = 4;
+	const [state, dispatch] = useWatchesWebsite();
+
+	const base__api__url = "http://localhost:3000";
+
+	useEffect(() => {
+		fetchCart();
+	}, []);
+
+	let fetchCart = (query) => {
+
+		let api__url = base__api__url + "/cart";
+
+		axios.get(api__url)
+			.then(response => {
+				dispatch({ type: GLOBAL_ACTIONS.SET_CART, payload: response.data })
+			})
+			.catch(err => console.error(err));
+	}
 
 	return (
 		<div className="header__container">
@@ -33,13 +55,17 @@ function Header() {
 					<li className="header__nav__actions__item">
 						<FontAwesomeIcon icon={faUser} />
 					</li>
-					<li className="header__nav__actions__item">
-						<FontAwesomeIcon icon={faSearch} />
-					</li>
-					<li className="header__nav__actions__item">
-						<FontAwesomeIcon icon={faBasketShopping} />
-						<span>{cart_items_nbr}</span>
-					</li>
+					<NavLink to="/browse">
+						<li className="header__nav__actions__item">
+							<FontAwesomeIcon icon={faSearch} />
+						</li>
+					</NavLink>
+					<NavLink to="/cart">
+						<li className="header__nav__actions__item">
+							<FontAwesomeIcon icon={faBasketShopping} />
+							<span>{state.cart.length}</span>
+						</li>
+					</NavLink>
 				</ul>
 			</div>
 		</div>
