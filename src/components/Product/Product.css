@@ -1,0 +1,23 @@
+.product__container {
+
+    background: repeating-linear-gradient(45deg, #00000055 0, #00000055 10%, transparent 0, transparent 50%), repeating-linear-gradient(135deg, #00000055 0, #00000055 10%, transparent 0, transparent 50%);
+    background-size: 5em 5em;
+    background-color: #090810;
+    opacity: 1;
+
+    min-height: 100%;
+    width: 100%;
+    padding-top: 100px;
+}
+
+.product__wrapper {
+    /* height: 100%; */
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.product__wrapper {
+    color: #eee;
+}

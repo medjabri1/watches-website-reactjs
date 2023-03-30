@@ -8,15 +8,15 @@ function ShowcaseItem({item}) {
     <div className={styles.ShowcaseItem__container}>
         <div className={styles.ShowcaseItem__info__container}>
           <div className={styles.ShowcaseItem__info}>
-            <h1 className={styles.ShowcaseItem__model}>Submariner</h1>
-            <h3 className={styles.ShowcaseItem__brand}>Rolex</h3>
-            <span className={styles.ShowcaseItem__price}>2300$</span>
-            <Link className={styles.ShowcaseItem__details} to="/">Details</Link>
+            <h1 className={styles.ShowcaseItem__model}>{item.Model}</h1>
+            <h3 className={styles.ShowcaseItem__brand}>{item.Brand}</h3>
+            <span className={styles.ShowcaseItem__price}>{item.Price}$</span>
+            <Link className={styles.ShowcaseItem__details} to={`/product/${item.id}`}>Details</Link>
           </div>
         </div>
         <div className={styles.ShowcaseItem__img}>
             <img 
-                src={item.img} alt="Image" />
+                src={item.imgs[0]} alt="Image" />
         </div>
     </div>
   )

@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,20 +17,22 @@ function Showcase() {
 
     SwiperCore.use([Autoplay]);
 
-    const items = [
-        { 
-            title: 'Rolex Submariner', price: 1300,
-            img: 'https://cdn.shopify.com/s/files/1/0458/4492/2517/products/7_75242ebc-6cac-45bd-bb45-d23b7b21ddf4_600x.png?v=1608410600'
-        },
-        { 
-            title: 'Tag Heuer', price: 2300,
-            img: 'https://www.tagheuer.com/on/demandware.static/-/Sites-tagheuer-master/default/dw39e94ec1/TAG_Heuer_Carrera/CV2A1S.FC6236/CV2A1S.FC6236_0913.png'
-        },
-        { 
-            title: 'Seiko Prospex', price: 2300,
-            img: 'https://www.seikoboutique.co.uk/wp-content/uploads/2021/03/SPB101J1.png'
-        },
-    ];
+    const [watches, setWatches] = useState([]);
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    let fetchData = () => {
+
+        let api__url = "http://localhost:3000/watches";
+
+        axios.get(api__url)
+            .then(response => {
+                setWatches(response.data);
+            })
+            .catch(err => console.error(err));
+    }
 
     return (
         <div className={styles.showcase__container}>
@@ -48,7 +51,7 @@ function Showcase() {
             >
 
                 {
-                    items.map((item, index) => {
+                    watches.map((item, index) => {
                         return (
                             <SwiperSlide key={index}>
                                 <ShowcaseItem item={item} />

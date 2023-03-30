@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import "./Browse.css";
-
-import watches__data from "../../watches.db.json";
 
 function Browse() {
 
@@ -10,15 +10,29 @@ function Browse() {
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        let data = watches__data.watches;
-        setWatches(data)
-        console.log(watches);
+        fetchData('');
     }, []);
 
     useEffect(() => {
-        let data = watches__data.watches;
-        setWatches(data.filter(watch => watch.Model.toLowerCase().includes(searchQuery.toLowerCase())));
+        fetchData(searchQuery.trim());
     }, [searchQuery])
+
+    let fetchData = (query) => {
+
+        let api__url = "";
+
+        if(query == "") {
+            api__url = "http://localhost:3000/watches";
+        } else {
+            api__url = "http://localhost:3000/watches?q="+query
+        }
+
+        axios.get(api__url)
+            .then(response => {
+                setWatches(response.data);
+            })
+            .catch(err => console.error(err));
+    }
 
     return (
         <div className="browse__container">
@@ -43,9 +57,9 @@ function Browse() {
 
                         watches.map((watch, index) => {
                             return (
-                                <div className="product__item" key={index}>
+                                <div className="product__item" key={index} style={{animationDelay: index*200 + "ms"}}>
                                     <div className="product__item__background">
-                                        <img className="product__item__image" src={watch.imgs[0]} alt="Product Image" />
+                                        <img className="product__item__image" src={watch.imgs[0]} alt="Product Cover" />
                                     </div>
                                     <div className="product__item__content__container">
                                         <div className="product__item__content">
@@ -56,8 +70,8 @@ function Browse() {
                                             </div>
 
                                             <div className="product__item__content__action">
-                                                <h3 className="product__item__add__cart">Details</h3>
-                                                <h3 className="product__item__details">Add To Cart</h3>
+                                                <Link to={`/product/${watch.id}`} className="product__item__details">Details</Link>
+                                                <h3 className="product__item__add__cart">Add To Cart</h3>
                                             </div>
                                         </div>
                                     </div>

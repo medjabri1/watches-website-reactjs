@@ -50,6 +50,11 @@
     padding: 10px;
 }
 
+.header__nav__list__item a.active {
+    font-weight: 600;
+    color: #e6543d;
+}
+
 .header__nav__actions__item {
     font-size: .7rem;
     width: 30px;
